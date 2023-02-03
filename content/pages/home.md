@@ -1,13 +1,9 @@
 ---
 title: Tina Cloud Starter
 blocks:
-  - headline: Welcome to the Tina Starter
-    text: >
-      This project is set up to show you the basics of working with Tina. You're
-      looking at the landing page, which pulls content from
-      content/pages/home.md, components from components/blocks, and puts them
-      all together in pages/\[filename].tsx, all based on a schema defined in
-      .tina/schema.ts.
+  - tagline: No place for human beings
+    headline: Sunset System
+    text: "Sunset System\_is an existentialist worldbuilding project about the machines left behind by humanity after they vanished from the Solar System one fateful day. The project explores the machines' struggle to find meaning as they gain consciousness, the world of retrofuturistic dreams they live in, and the wild and strange ways their society may be evolving.\n"
     actions:
       - label: Get Started
         type: button
@@ -20,7 +16,7 @@ blocks:
     image:
       src: /uploads/isaac-magazine-spread-3.png
       alt: Mac Man
-    color: default
+    color: primary
     _template: hero
   - items:
       - icon:
@@ -48,4 +44,5 @@ blocks:
     color: tint
     _template: features
 ---
+
 
