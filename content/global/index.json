@@ -30,8 +30,8 @@
     }
   },
   "theme": {
-    "color": "blue",
-    "font": "sans",
-    "darkMode": "system"
+    "color": "orange",
+    "font": "lato",
+    "darkMode": "dark"
   }
 }
