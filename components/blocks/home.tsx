@@ -34,6 +34,11 @@ export const Home = ({ data, parentField }) => {
 export const homeBlockSchema: TinaTemplate = {
     name: "Home",
     label: "Home",
+    ui: {
+        defaultItem: {
+            tagline: "Here's some text above the other text",
+        },
+    },
     fields: [
         {
             type: "string",
