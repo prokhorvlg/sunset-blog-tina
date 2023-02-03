@@ -6,7 +6,7 @@ import { useTheme } from "../layout";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import type { TinaTemplate } from "tinacms";
 
-export const Hero = ({ data, parentField }) => {
+export const Home = ({ data, parentField }) => {
     const theme = useTheme();
     const headlineColorClasses = {
         blue: "from-blue-400 to-blue-600",

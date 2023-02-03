@@ -3,6 +3,7 @@ import type { Page } from "../.tina/__generated__/types";
 import { Content } from "./blocks/content";
 import { Features } from "./blocks/features";
 import { Hero } from "./blocks/hero";
+import { Home } from "./blocks/home";
 import { Testimonial } from "./blocks/testimonial";
 
 export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
@@ -10,47 +11,56 @@ export const Blocks = (props: Omit<Page, "id" | "_sys" | "_values">) => {
     <>
       {props.blocks
         ? props.blocks.map(function (block, i) {
-            switch (block.__typename) {
-              case "PageBlocksContent":
-                return (
-                  <div
-                    data-tinafield={`blocks.${i}`}
-                    key={i + block.__typename}
-                  >
-                    <Content data={block} parentField={`blocks.${i}`} />
-                  </div>
-                );
-              case "PageBlocksHero":
-                return (
-                  <div
-                    data-tinafield={`blocks.${i}`}
-                    key={i + block.__typename}
-                  >
-                    <Hero data={block} parentField={`blocks.${i}`} />
-                  </div>
-                );
-              case "PageBlocksFeatures":
-                return (
-                  <div
-                    data-tinafield={`blocks.${i}`}
-                    key={i + block.__typename}
-                  >
-                    <Features data={block} parentField={`blocks.${i}`} />
-                  </div>
-                );
-              case "PageBlocksTestimonial":
-                return (
-                  <div
-                    data-tinafield={`blocks.${i}`}
-                    key={i + block.__typename}
-                  >
-                    <Testimonial data={block} parentField={`blocks.${i}`} />
-                  </div>
-                );
-              default:
-                return null;
-            }
-          })
+          switch (block.__typename) {
+            case "PageBlocksContent":
+              return (
+                <div
+                  data-tinafield={`blocks.${i}`}
+                  key={i + block.__typename}
+                >
+                  <Content data={block} parentField={`blocks.${i}`} />
+                </div>
+              );
+            case "PageBlocksHero":
+              return (
+                <div
+                  data-tinafield={`blocks.${i}`}
+                  key={i + block.__typename}
+                >
+                  <Hero data={block} parentField={`blocks.${i}`} />
+                </div>
+              );
+            case "PageBlocksHome":
+              return (
+                <div
+                  data-tinafield={`blocks.${i}`}
+                  key={i + block.__typename}
+                >
+                  <Home data={block} parentField={`blocks.${i}`} />
+                </div>
+              );
+            case "PageBlocksFeatures":
+              return (
+                <div
+                  data-tinafield={`blocks.${i}`}
+                  key={i + block.__typename}
+                >
+                  <Features data={block} parentField={`blocks.${i}`} />
+                </div>
+              );
+            case "PageBlocksTestimonial":
+              return (
+                <div
+                  data-tinafield={`blocks.${i}`}
+                  key={i + block.__typename}
+                >
+                  <Testimonial data={block} parentField={`blocks.${i}`} />
+                </div>
+              );
+            default:
+              return null;
+          }
+        })
         : null}
     </>
   );
