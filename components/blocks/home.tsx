@@ -25,7 +25,7 @@ export const Home = ({ data, parentField }) => {
                 size="large"
                 className=""
             >
-                hola
+                hola!
             </Container>
         </Section>
     );
@@ -33,5 +33,6 @@ export const Home = ({ data, parentField }) => {
 
 export const homeBlockSchema: TinaTemplate = {
     name: "Home",
+    label: "Home",
     fields: []
 };
