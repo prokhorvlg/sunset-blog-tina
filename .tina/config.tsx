@@ -358,11 +358,11 @@ const config = defineStaticConfig({
             },
             templates: [
               heroBlockSchema,
-              homeBlockSchema,
               // @ts-ignore
               featureBlockSchema,
               contentBlockSchema,
               testimonialBlockSchema,
+              homeBlockSchema,
             ],
           },
         ],
