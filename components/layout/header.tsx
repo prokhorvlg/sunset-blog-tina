@@ -66,7 +66,7 @@ export const Header = ({ data }) => {
 
   return (
     <div
-      className={`relative overflow-hidden bg-gradient-to-b ${headerColorCss}`}
+      className={`sunset-header relative overflow-hidden`}
     >
       <Container size="custom" className="py-0 relative z-10 max-w-8xl">
         <div className="flex items-center justify-between gap-6">
@@ -95,22 +95,19 @@ export const Header = ({ data }) => {
                 return (
                   <li
                     key={`${item.label}-${i}`}
-                    className={`${
-                      activeItem ? activeItemClasses[theme.color] : ""
-                    }`}
+                    className={`${activeItem ? activeItemClasses[theme.color] : ""
+                      }`}
                   >
                     <Link href={`${prefix}/${item.href}`} passHref>
                       <a
-                        className={`relative select-none	text-base inline-block tracking-wide transition duration-150 ease-out hover:opacity-100 py-8 px-4 ${
-                          activeItem ? `` : `opacity-70`
-                        }`}
+                        className={`relative select-none	text-base inline-block tracking-wide transition duration-150 ease-out hover:opacity-100 py-8 px-4 ${activeItem ? `` : `opacity-70`
+                          }`}
                       >
                         {item.label}
                         {activeItem && (
                           <svg
-                            className={`absolute bottom-0 left-1/2 w-[180%] h-full -translate-x-1/2 -z-1 opacity-10 dark:opacity-15 ${
-                              activeBackgroundClasses[theme.color]
-                            }`}
+                            className={`absolute bottom-0 left-1/2 w-[180%] h-full -translate-x-1/2 -z-1 opacity-10 dark:opacity-15 ${activeBackgroundClasses[theme.color]
+                              }`}
                             preserveAspectRatio="none"
                             viewBox="0 0 230 230"
                             fill="none"
@@ -151,9 +148,8 @@ export const Header = ({ data }) => {
           </ul>
         </div>
         <div
-          className={`absolute h-1 bg-gradient-to-r from-transparent ${
-            data.color === "primary" ? `via-white` : `via-black dark:via-white`
-          } to-transparent bottom-0 left-4 right-4 -z-1 opacity-5`}
+          className={`absolute h-1 bg-gradient-to-r from-transparent ${data.color === "primary" ? `via-white` : `via-black dark:via-white`
+            } to-transparent bottom-0 left-4 right-4 -z-1 opacity-5`}
         />
       </Container>
     </div>

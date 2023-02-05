@@ -1,6 +1,8 @@
 ---
 title: Sunset System
 blocks:
+  - tagline: Here's some text above the other text
+    _template: Home
   - tagline: No place for human beings
     headline: Sunset System
     text: "Sunset System\_is an existentialist worldbuilding project about the machines left behind by humanity after they vanished from the Solar System one fateful day. The project explores the machines' struggle to find meaning as they gain consciousness, the world of retrofuturistic dreams they live in, and the wild and strange ways their society may be evolving.\n"
@@ -19,7 +21,4 @@ blocks:
     color: primary
     _template: hero
 ---
-
-
-
 
