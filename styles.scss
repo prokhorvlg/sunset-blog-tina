@@ -1,6 +1,101 @@
+$sunset-brand-light-orange: #ffaa01;
+$sunset-brand-dark-orange: #ff3d00;
+
+.sunset-header {
+    display: none;
+}
+
+.sunset-nav-bar {
+    height: 80px;
+    width: 100%;
+    background: black;
+    position: relative;
+    z-index: 200;
+    padding: 6px;
+
+    display: flex;
+    flex-direction: row;
+
+    .navbar-wrap {
+        height: 100%;
+        padding: 3px;
+
+        >div {
+            background: black;
+            color: white;
+            height: 100%;
+            padding: 5px;
+
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .main-segment-wrap {
+        background: linear-gradient(to right, #ffaa01, #ff510c);
+        flex: 1;
+
+        .main-segment {
+            .main-segment-stipple {
+                background: red;
+                height: 100%;
+
+                &.left {
+                    width: 10%;
+                }
+
+                &.right {
+                    flex: 1;
+                }
+            }
+
+            .main-segment-title {
+                padding: 0 50px 0 50px;
+            }
+        }
+    }
+
+    .links-segment-wrap {
+        background: #ff510c;
+
+        .links-segment {
+            padding: 0 30px 0 30px;
+
+            ul {
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+
+                li {
+                    padding: 0 20px 0 20px;
+                }
+            }
+        }
+    }
+
+    .socials-segment-wrap {
+        background: #ff510c;
+
+        .socials-segment {
+            padding: 0 20px 0 20px;
+
+            ul {
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+
+                li {
+                    padding: 0 10px 0 10px;
+                }
+            }
+        }
+    }
+
+}
+
 .home-block {
     .home-parallax-banner {
-        height: calc(100vh - 90px);
+        height: calc(100vh - 90px - 10vh);
         position: relative;
         z-index: 100;
 
@@ -11,23 +106,83 @@
         }
 
         .background {
-
             background-image: url('./assets/img/sunset/hero-background.png');
             background-size: cover;
-            background-position: center;
-            z-index: 110;
+            //background-position: center;
+            background-position: 50% 0px;
+            z-index: 100;
+            height: 110%;
+            top: -50px;
+
+            // When background too big, fix it to maximum size
+            @media (min-width: 1920px) {
+                background-size: cover;
+                background-position: 50% 0px;
+                top: -200px;
+            }
         }
 
         .subject-main {
             z-index: 120;
             background-image: url('./assets/img/sunset/hero-subject-main.png');
-            background-size: contain;
+            background-size: cover;
             background-position: bottom center;
             background-repeat: no-repeat;
 
-            @media (max-width: 1920px) {
-                background-size: cover;
+            // When background too big, fix it to maximum size
+            @media (min-width: 1920px) {
+                background-size: 80%;
             }
+        }
+
+        .side-tall {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: 110;
+
+            @media (max-width: 1200px) {
+                display: none;
+            }
+
+            &::before {
+                display: block;
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 100%;
+
+                background-image: url('./assets/img/sunset/hero-side-tall.png');
+                background-size: cover;
+                background-position: bottom left;
+                background-repeat: no-repeat;
+
+                @media (min-width: 1920px) {
+                    background-size: 80%;
+                }
+            }
+
+
+            &.right {
+
+
+                &::before {
+                    transform: scaleX(-1);
+                    //background-position: bottom left;
+
+                }
+
+            }
+        }
+
+        .hero-transition {
+            z-index: 130;
+            background-image: url('./assets/img/sunset/hero-transition.png');
+            background-size: cover;
+            background-position: bottom center;
+            background-repeat: no-repeat;
+
+
         }
 
     }
@@ -40,6 +195,19 @@
 
         p {
             color: white;
+        }
+
+        .home-intro-block {
+            display: flex;
+            justify-content: center;
+            padding: 0 20px 0 20px;
+
+            >div {
+                margin-top: -100px;
+                width: 100%;
+                max-width: 800px;
+            }
+
         }
     }
 }
@@ -54,4 +222,57 @@
     a {
         color: white;
     }
+}
+
+$dialog-wrap-border-width: 3px;
+$dialog-wrap-distance: 10px;
+$dialog-wrap-distance-hover: 4px;
+
+.dialog-wrap {
+    position: relative;
+    width: calc(100% - $dialog-wrap-distance);
+
+    &.hover:hover {
+        .dialog-wrap-slot {
+            left: $dialog-wrap-distance-hover;
+            top: $dialog-wrap-distance-hover;
+        }
+
+        .right {
+            width: $dialog-wrap-distance-hover;
+        }
+
+        .bottom {
+            height: $dialog-wrap-distance-hover;
+        }
+    }
+
+    .dialog-wrap-slot {
+        position: relative;
+        border: $dialog-wrap-border-width solid $sunset-brand-dark-orange;
+        left: 0px;
+        top: 0px;
+    }
+
+    .border {
+        position: absolute;
+        border: $dialog-wrap-border-width solid $sunset-brand-dark-orange;
+
+        &.right {
+            right: -$dialog-wrap-distance;
+            bottom: -$dialog-wrap-distance;
+            top: $dialog-wrap-distance;
+            width: $dialog-wrap-distance;
+            border-left: none;
+        }
+
+        &.bottom {
+            right: -$dialog-wrap-distance;
+            bottom: -$dialog-wrap-distance;
+            left: $dialog-wrap-distance;
+            height: $dialog-wrap-distance;
+            border-top: none;
+        }
+    }
+
 }
