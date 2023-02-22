@@ -30,8 +30,13 @@ const DialogWrap = ({
                 {(wrapStyle.headerStyle === DialogHeaderStyle.macintoshStraight) ?
                     <MacintoshStraightHeader wrapStyle={wrapStyle} />
                     : ""}
+                {(wrapStyle.headerStyle === DialogHeaderStyle.cautionDiagonal) ?
+                    <CautionDiagonalHeader wrapStyle={wrapStyle} />
+                    : ""}
 
-                {content}
+                <div className="dialog-content">
+                    {content}
+                </div>
             </div>
             <div className="border right"></div>
             <div className="border bottom"></div>
@@ -43,7 +48,45 @@ const MacintoshStraightHeader = ({
     wrapStyle
 }) => {
     return (
-        <div>{wrapStyle.headerTitle}</div>
+        <div className="macintosh-header">
+            <div className="macintosh-header-lines left">
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+            </div>
+            <div className="macintosh-header-title">
+                <span>{wrapStyle.headerTitle}</span>
+            </div>
+            <div className="macintosh-header-lines right">
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+            </div>
+            <div className="macintosh-header-close"></div>
+        </div>
+    )
+}
+
+const CautionDiagonalHeader = ({
+    wrapStyle
+}) => {
+    return (
+        <div className="caution-diagonal-header">
+            <div className="macintosh-header-lines left">
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+            </div>
+            <div className="macintosh-header-title">
+                <span>{wrapStyle.headerTitle}</span>
+            </div>
+            <div className="macintosh-header-lines right">
+                <div className="line"></div>
+                <div className="line"></div>
+                <div className="line"></div>
+            </div>
+            <div className="macintosh-header-close"></div>
+        </div>
     )
 }
 

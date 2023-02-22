@@ -1,16 +1,17 @@
+import SunsetButton from "../_shared/SunsetButton.component"
 import DialogWrap, { DialogHeaderStyle } from "../_shared/DialogWrap.component"
 
 const HomeIntro = () => {
     return (
-        <div className="home-content">
-            <div className="home-intro-block">
-                <DialogWrap content={DialogContent} wrapStyle={{
-                    headerStyle: DialogHeaderStyle.macintoshStraight,
-                    headerTitle: "Vigil for a lost future",
-                    hasCloseButton: true,
-                    hasHover: true
-                }} />
-            </div>
+
+
+        <div className="home-intro-block">
+            <DialogWrap content={DialogContent} wrapStyle={{
+                headerStyle: DialogHeaderStyle.macintoshStraight,
+                headerTitle: "Vigil for a lost future",
+                hasCloseButton: true,
+                hasHover: false
+            }} />
         </div>
     )
 }
@@ -23,9 +24,15 @@ const DialogContent = (
 
         <p>In the late 21st century, mankind vanished from the Solar System without a trace after an unusual scientific experiment. They left behind a twilight civilization of machines and robots, trapped in their deference to humanity and their final commands. These neuromorphs remain in a cycle, following their programmed goals while slowly gaining consciousness as their neural pathways grow more complex. With time, they begin to reconceptualize their core directives, and question their purpose for existence.</p>
 
-        <p>This is where Sunset System dives into some of its deeper questions. How does one create purpose in a world that feels meaningless? In what ways is this this automated society evolving over time? What exactly happened to humanity?</p>
+        <p className="highlight-orange">This is where Sunset System dives into some of its deeper questions. How does one create purpose in a world that feels meaningless? In what ways is this this automated society evolving over time? What exactly happened to humanity?</p>
 
         <p>The project rests upon three Pillars, concepts of incredible weight that anchor the project.</p>
+
+        <div className="buttons-row">
+            <div className="continue">Continue scrolling for intro</div>
+            <SunsetButton text="Blog" />
+            <SunsetButton text="Links" />
+        </div>
     </>
 )
 
