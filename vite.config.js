@@ -1,9 +1,12 @@
-// also don't forget to `npm i -D @types/node`, so __dirname won't complain
 import * as path from 'path'
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-    plugins: [react()],
     resolve: {
-        alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
+        alias: [
+            { find: '@', replacement: '/src' }
+        ],
     },
+    plugins: [react()]
 })

@@ -21,11 +21,12 @@
     "types": [
       "node"
     ],
+    /*"baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
+      "/@/*": [
+        "*"
       ]
-    }
+    }*/
   },
   "exclude": [
     "node_modules"

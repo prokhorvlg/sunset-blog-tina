@@ -1,3 +1,4 @@
+import React from 'react'
 import { defineStaticConfig } from "tinacms";
 import { contentBlockSchema } from "../components/blocks/content";
 import { featureBlockSchema } from "../components/blocks/features";

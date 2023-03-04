@@ -2,10 +2,16 @@
 // TODO: Add hover push down for image
 // TODO support a gradient border?? ehh....
 
+import DiagonalLinesBar from "./DiagonalLinesBar/DiagonalLinesBar.component"
+
 export enum DialogHeaderStyle {
     none,
-    macintoshStraight,
-    cautionDiagonal
+    MacintoshStraight,
+    CautionDiagonal
+}
+
+export enum DialogTheme {
+    LightDarkOrange = "light-dark-orange"
 }
 
 export interface DialogWrapStyle {
@@ -13,6 +19,7 @@ export interface DialogWrapStyle {
     headerTitle?: string
     hasCloseButton?: boolean
     hasHover?: boolean
+    theme?: DialogTheme
 }
 
 interface PropTypes {
@@ -25,12 +32,15 @@ const DialogWrap = ({
     wrapStyle
 }: PropTypes) => {
     return (
-        <div className={`dialog-wrap ${wrapStyle.hasHover ? 'hover' : ''}`}>
+        <div className={`dialog-wrap 
+            ${wrapStyle.hasHover ? 'hover' : ''} 
+            ${wrapStyle.theme ? wrapStyle.theme : ''}
+        `}>
             <div className="dialog-wrap-slot">
-                {(wrapStyle.headerStyle === DialogHeaderStyle.macintoshStraight) ?
+                {(wrapStyle.headerStyle === DialogHeaderStyle.MacintoshStraight) ?
                     <MacintoshStraightHeader wrapStyle={wrapStyle} />
                     : ""}
-                {(wrapStyle.headerStyle === DialogHeaderStyle.cautionDiagonal) ?
+                {(wrapStyle.headerStyle === DialogHeaderStyle.CautionDiagonal) ?
                     <CautionDiagonalHeader wrapStyle={wrapStyle} />
                     : ""}
 
@@ -70,22 +80,14 @@ const MacintoshStraightHeader = ({
 const CautionDiagonalHeader = ({
     wrapStyle
 }) => {
+    const diagonalLength = 50
     return (
-        <div className="caution-diagonal-header">
-            <div className="macintosh-header-lines left">
-                <div className="line"></div>
-                <div className="line"></div>
-                <div className="line"></div>
-            </div>
-            <div className="macintosh-header-title">
+        <div className="caution-diagonal-header diagonal-lines-container">
+            <DiagonalLinesBar length={diagonalLength} />
+            <div className="header-title">
                 <span>{wrapStyle.headerTitle}</span>
             </div>
-            <div className="macintosh-header-lines right">
-                <div className="line"></div>
-                <div className="line"></div>
-                <div className="line"></div>
-            </div>
-            <div className="macintosh-header-close"></div>
+            <DiagonalLinesBar length={diagonalLength} />
         </div>
     )
 }

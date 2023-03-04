@@ -1,15 +1,18 @@
 // COLORS
-$sunset-brand-light-orange: #ffaa01;
-$sunset-brand-dark-orange: #ff3d00;
-$sunset-body-manila: #ffe9d3;
+$color-light-normal-orange: #ffaa01;
+$color-light-reddish-orange: #ff3d00;
+$color-light-manila: #ffe9d3;
 
-$sunset-bg-dark-orange: #391704;
-$sunset-color-burnished: #461709;
+$color-dark-orange: #391704;
+$color-dark-burnished: #461709;
 
 // FONTS
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Saira+Semi+Condensed:wght@600;800&display=swap');
-$sunset-title-condensed: 'Saira Semi Condensed', sans-serif;
-$sunset-body: 'Barlow', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@700;800&family=Barlow:wght@500&family=Saira+Semi+Condensed:wght@500;800&family=Saira:wght@600&display=swap');
+
+$font-title: 'Saira', sans-serif;
+$font-title-condensed: 'Saira Semi Condensed', sans-serif;
+$font-body: 'Barlow', sans-serif;
+$font-body-condensed: 'Barlow Semi Condensed', sans-serif;
 
 // BASIC
 
@@ -23,17 +26,28 @@ h4,
 h5,
 h6,
 span {
-    font-family: $sunset-body;
-    color: $sunset-body-manila;
+    font-family: $font-body;
+    color: $color-light-manila;
 }
 
 p {
     line-height: 1.7rem;
     font-size: 1rem;
-    color: $sunset-body-manila;
+    color: $color-light-manila;
+}
+
+p,
+span {
+    &.bold {
+        font-weight: 800;
+    }
 
     &.highlight-orange {
-        color: $sunset-brand-light-orange;
+        color: $color-light-normal-orange;
+    }
+
+    &.highlight-reddish-orange {
+        color: $color-light-reddish-orange;
     }
 }
 
@@ -275,7 +289,7 @@ p {
                     white-space: pre;
                     display: inline-block;
                     width: max-content;
-                    background-color: rgba($sunset-color-burnished, 0.9);
+                    background-color: rgba($color-dark-burnished, 0.9);
                     padding: 20px;
                 }
             }
@@ -286,9 +300,186 @@ p {
 
 // PILLAR CONTENT BLOCK
 .pillar-intro {
-    max-width: 100%;
-    width: 1500px;
-    margin: 150px 0 150px 0;
+    .pillar-background {
+        position: absolute;
+        max-height: 100vh;
+        pointer-events: none;
+
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        background-image: url('./assets/img/sunset/bigplane-dithered-bg.png');
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .images-wrapper {
+        display: flex;
+        flex-direction: row;
+        margin-right: 10px;
+        margin-top: 20px;
+
+        .dialog-wrap {
+            flex: 1;
+            margin-right: 20px;
+            align-items: stretch;
+
+            &:last-child {
+                margin-right: 0px;
+            }
+
+            .dialog-wrap-slot {
+                height: 100%;
+
+                .dialog-content {
+                    padding: 0;
+                    height: 100%;
+
+                    >div,
+                    img {
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pillar-passage {
+    .pillar-wrapper {
+        display: flex;
+        flex-direction: row;
+
+        .side-header {
+            border: 3px solid $color-light-reddish-orange;
+            width: 85px;
+            position: relative;
+
+            .diagonal-rotate-wrapper {
+                position: absolute;
+                left: 9px;
+                top: -11px;
+
+                .diagonal-lines {
+                    transform: translateX(-50%) rotate(-90deg) translateX(-50%);
+                }
+            }
+
+            span {
+                position: absolute;
+                display: block;
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+                bottom: 10px;
+                left: 4px;
+
+                font-family: $font-body-condensed;
+                text-transform: uppercase;
+                color: $color-light-reddish-orange;
+                letter-spacing: 0.1rem;
+                font-size: 0.9rem;
+                font-weight: 800;
+            }
+        }
+
+        .main-content-container {
+            margin-left: 5px;
+            display: flex;
+            flex-direction: column;
+
+            .main-header {
+                border: 3px solid $color-light-normal-orange;
+
+                h2,
+                h3 {
+                    padding: 30px 30px 30px 40px;
+                    font-family: $font-title;
+                    font-size: 2.2rem;
+                    letter-spacing: -0.08rem;
+                    color: $color-light-normal-orange;
+                }
+            }
+
+            .main-content {
+                padding: 45px 30px 30px 45px;
+
+                p {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
+
+.side-lights-wrapper {
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+
+    .side-lights-content {
+        max-width: 100%;
+        width: 1300px;
+        margin: 250px 0 250px 0;
+    }
+}
+
+// SIDE LIGHTS BAR
+.side-lights-bar {
+    position: relative;
+    margin: 0 50px 0 50px;
+
+    .light-column {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        transform: translateX(-50%);
+
+        .light-item {
+            width: 30px;
+            height: 9px;
+            background-color: $color-light-normal-orange;
+            margin-bottom: 3px;
+
+            &.light-orange {
+                background-color: $color-light-normal-orange;
+            }
+
+            &.dark-orange {
+                background-color: $color-light-reddish-orange;
+            }
+        }
+
+
+    }
+
+    .code-text {
+        position: absolute;
+        transform: translateX(-50%) rotate(-90deg);
+
+        span {
+            font-family: $font-body-condensed;
+            letter-spacing: 0.1rem;
+            font-size: 0.9rem;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        &.dark-orange span {
+            color: $color-light-reddish-orange;
+        }
+    }
 }
 
 // DIALOG WRAP
@@ -317,11 +508,11 @@ $dialog-wrap-distance-hover: 4px;
 
     .dialog-wrap-slot {
         position: relative;
-        border: $dialog-wrap-border-width solid $sunset-brand-dark-orange;
+        border: $dialog-wrap-border-width solid $color-light-reddish-orange;
         left: 0px;
         top: 0px;
 
-        background-color: rgba($sunset-bg-dark-orange, 0.5);
+        background-color: rgba($color-dark-orange, 0.5);
 
         .dialog-content {
             padding: 0 40px 20px 40px;
@@ -331,7 +522,7 @@ $dialog-wrap-distance-hover: 4px;
                 font-size: 2rem;
                 margin: 20px 0 20px 0;
                 text-transform: uppercase;
-                color: $sunset-brand-light-orange;
+                color: $color-light-normal-orange;
             }
 
             p {
@@ -342,7 +533,7 @@ $dialog-wrap-distance-hover: 4px;
 
     .border {
         position: absolute;
-        border: $dialog-wrap-border-width solid $sunset-brand-dark-orange;
+        border: $dialog-wrap-border-width solid $color-light-reddish-orange;
 
         &.right {
             right: -$dialog-wrap-distance;
@@ -361,6 +552,59 @@ $dialog-wrap-distance-hover: 4px;
         }
     }
 
+    &.light-dark-orange {
+
+        .dialog-wrap-slot,
+        .border {
+            border-color: $color-light-normal-orange;
+        }
+
+        .dialog-wrap-slot {
+            background-color: rgba($color-dark-burnished, 0.5);
+        }
+
+        .dialog-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+        }
+
+        h2 {
+            font-family: $font-title;
+            color: $color-light-normal-orange;
+            font-size: 3.2rem;
+            text-align: center;
+
+            margin-bottom: 20px;
+            letter-spacing: -0.1rem;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 2.5rem;
+            width: 1000px;
+            max-width: 90%;
+            padding-bottom: 50px;
+        }
+
+        .flavor-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+
+            div {
+                font-family: $font-body-condensed;
+                font-size: 0.9rem;
+                letter-spacing: 0.1rem;
+                color: $color-light-normal-orange;
+                text-transform: uppercase;
+            }
+        }
+    }
 }
 
 .macintosh-header {
@@ -375,9 +619,9 @@ $dialog-wrap-distance-hover: 4px;
         margin: 0 10px 0 10px;
 
         span {
-            font-family: $sunset-title-condensed;
+            font-family: $font-title-condensed;
             font-size: 1.1rem;
-            color: $sunset-brand-dark-orange;
+            color: $color-light-reddish-orange;
             font-weight: 800;
         }
     }
@@ -392,7 +636,7 @@ $dialog-wrap-distance-hover: 4px;
             height: 2px;
             width: 100%;
             border-radius: 2px;
-            background: $sunset-brand-dark-orange;
+            background: $color-light-reddish-orange;
             margin: 1.5px 0 1.5px 0;
         }
     }
@@ -400,11 +644,11 @@ $dialog-wrap-distance-hover: 4px;
     .macintosh-header-close {
         height: 20px;
         width: 20px;
-        border: 3px solid $sunset-brand-dark-orange;
+        border: 3px solid $color-light-reddish-orange;
         margin-right: 8px;
 
         &:hover {
-            background: $sunset-brand-dark-orange;
+            background: $color-light-reddish-orange;
             cursor: pointer;
         }
     }
@@ -414,6 +658,7 @@ $dialog-wrap-distance-hover: 4px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 
     position: absolute;
     bottom: calc(100% + 10px);
@@ -421,7 +666,47 @@ $dialog-wrap-distance-hover: 4px;
     right: -3px;
     padding: 5px;
 
-    border: 3px solid $sunset-brand-dark-orange;
+    border: 3px solid $color-light-reddish-orange;
+}
+
+.diagonal-lines-container {
+    .diagonal-lines {
+        display: flex;
+        flex-direction: row;
+        margin-left: 5px;
+
+        .line {
+            transform: rotate(45deg);
+            background-color: $color-light-reddish-orange;
+            height: 25px;
+            width: 3px;
+            border-radius: 50px;
+            margin-right: 7px;
+
+            &.first {
+                height: 10px;
+                margin-right: 3px;
+                margin-top: 3px;
+            }
+
+            &.last {
+                height: 10px;
+                margin-left: -5px;
+                margin-top: 13px;
+            }
+        }
+    }
+
+    .header-title {
+        font-family: $font-title-condensed;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 2px;
+
+        span {
+            color: $color-light-reddish-orange;
+        }
+    }
 }
 
 // BUTTONS
@@ -440,7 +725,7 @@ $sunset-botton-travel-distance: 5px;
         left: -$sunset-botton-travel-distance;
         width: 100%;
         height: 100%;
-        border: 3px solid $sunset-brand-light-orange;
+        border: 3px solid $color-light-normal-orange;
 
         transition: 0.1s ease-in-out;
     }
@@ -451,14 +736,14 @@ $sunset-botton-travel-distance: 5px;
         bottom: -$sunset-botton-travel-distance;
         height: 100%;
         width: 100%;
-        background-color: rgba($sunset-color-burnished, 0.9);
+        background-color: rgba($color-dark-burnished, 0.9);
         transition: 0.1s ease-in-out;
     }
 
     span {
         position: relative;
-        color: $sunset-brand-light-orange;
-        font-family: $sunset-title-condensed;
+        color: $color-light-normal-orange;
+        font-family: $font-title-condensed;
         text-transform: uppercase;
         font-size: 1.2rem;
     }
